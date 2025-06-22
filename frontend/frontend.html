@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      margin: 0;
+      background-color: #f5f7fb;
+      color: #333;
+    }
+    header {
+      background-color: #4f46e5;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      margin-bottom: 2rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    input[type="file"], input[type="text"], textarea, button, select {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #3730a3;
+    }
+    .output {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    AI Research Assistant
+  </header>
+  <main>
+    <section>
+      <h2>Upload Research Paper (PDF)</h2>
+      <input type="file" id="fileUpload">
+      <button onclick="uploadFile()">Upload</button>
+      <div id="uploadResult"></div>
+    </section>
+
+    <section>
+      <h2>Summarize Paper</h2>
+      <input type="text" id="filename" placeholder="Enter uploaded filename" />
+      <button onclick="summarizeFile()">Summarize</button>
+      <div class="output" id="summaryOutput"></div>
+    </section>
+
+    <section>
+      <h2>Generate Audio Summary</h2>
+      <input type="text" id="audioFilename" placeholder="Enter filename for audio" />
+      <button onclick="generateAudio()">Generate</button>
+      <div class="output" id="audioOutput"></div>
+    </section>
+
+    <section>
+      <h2>Search Papers</h2>
+      <input type="text" id="searchQuery" placeholder="Topic (e.g., AI, Deep Learning)" />
+      <button onclick="searchPapers()">Search</button>
+      <div class="output" id="searchOutput"></div>
+    </section>
+  </main>
+
+  <script>
+    const BASE_URL = 'http://127.0.0.1:8000/';
+
+    async function uploadFile() {
+      const file = document.getElementById('fileUpload').files[0];
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const res = await fetch(`${BASE_URL}/upload/`, {
+        method: "POST",
+        body: formData
+      });
+      const data = await res.json();
+      document.getElementById('uploadResult').textContent = JSON.stringify(data);
+    }
+
+    async function summarizeFile() {
+      const filename = document.getElementById('filename').value;
+      const res = await fetch(`${BASE_URL}/summarize/?filename=${filename}`, {
+        method: "POST"
+      });
+      const data = await res.json();
+      document.getElementById('summaryOutput').textContent = data.summary || data.error;
+    }
+
+    async function generateAudio() {
+      const filename = document.getElementById('audioFilename').value;
+      const res = await fetch(`${BASE_URL}/audio/?filename=${filename}`, {
+        method: "POST"
+      });
+      const data = await res.json();
+      if (data.audio_file) {
+        document.getElementById('audioOutput').innerHTML = `<audio controls src="${BASE_URL}/${data.audio_file}"></audio>`;
+      } else {
+        document.getElementById('audioOutput').textContent = data.error || "Failed to generate audio.";
+      }
+    }
+
+    async function searchPapers() {
+      const query = document.getElementById('searchQuery').value;
+      const res = await fetch(`${BASE_URL}/search/?query=${encodeURIComponent(query)}`);
+      const data = await res.json();
+      document.getElementById('searchOutput').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
