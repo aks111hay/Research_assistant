@@ -136,14 +136,34 @@ Upload this via `/upload/` and use in `/summarize/`, `/audio/`, `/classify/`.
 
 ## 🗀 Screenshots or Demo
 
-### 📥 Upload
-![Upload Screenshot](screenshots/upload.png)
+###  Upload
+![Upload](screenshots/upload_input.png)
+![Upload](screenshots/upload_output.png)
 
-### 🧠 Summarize
-![Summary Screenshot](screenshots/summary.png)
+###  Summarize
+![Summary Screenshot](screenshots/summarize_input.png)
+![Summary Screenshot](screenshots/summarize_output.png)
 
-### 🔊 Audio
-![Audio Screenshot](screenshots/audio.png)
+###  Audio
+![Audio Screenshot](screenshots/audio_input.png)
+![Audio Screenshot](screenshots/audio_output.png)
+
+###  classification
+![classificaation Screenshot](screenshots/classification_input.png)
+![classification Screenshot](screenshots/classification_output.png)
+
+###  Search
+![search Screenshot](screenshots/search_input.png)
+![search Screenshot](screenshots/search_output.png)
+
+### process_url
+![url Screenshot](screenshots/url_input.png)
+![url Screenshot](screenshots/url_output.png)
+
+
+### synthesize
+![synthesize Screenshot](screenshots/synthesize_input.png)
+
 
 > To include screenshots:
 1. Create a folder `screenshots/` in your GitHub repo
