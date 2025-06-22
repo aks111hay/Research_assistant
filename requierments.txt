@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-multipart
+pydantic
+transformers
+torch
+sentence-transformers
+PyMuPDF
+requests
+beautifulsoup4
+gTTS
