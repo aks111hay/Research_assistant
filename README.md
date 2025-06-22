@@ -165,10 +165,6 @@ Upload this via `/upload/` and use in `/summarize/`, `/audio/`, `/classify/`.
 ![synthesize Screenshot](screenshots/synthesize_input.png)
 
 
-> To include screenshots:
-1. Create a folder `screenshots/` in your GitHub repo
-2. Upload your PNG/JPG files
-3. Use Markdown syntax: `![Alt text](screenshots/filename.png)`
 
 ---
 
