@@ -89,20 +89,3 @@ Visit: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for Swagger UI
 
 ---
 
-## 🚫 Limitations
-- Summarizer works best for abstracts or short papers
-- Audio uses Google TTS (simple voice)
-- No citation tracing yet (can be added)
-
----
-
-## 🌱 Future Improvements
-- RAG with vector DB for better synthesis
-- Citation link tracking
-- Streamlit or React frontend
-- Dockerized one-click deployment
-
----
-
-## 📞 Questions?
-Feel free to ask for feature additions or frontend support!
