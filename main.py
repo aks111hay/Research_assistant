@@ -86,3 +86,15 @@ class SynthesisRequest(BaseModel):
 def synthesize_route(request: SynthesisRequest):
     result = synthesize(request.summaries)
     return {"synthesis": result}
+
+
+@app.get("/")
+def root():
+    return {"status": "OK", "message": "Backend is running"}
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
