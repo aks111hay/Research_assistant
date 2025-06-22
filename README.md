@@ -141,8 +141,8 @@ Upload this via `/upload/` and use in `/summarize/`, `/audio/`, `/classify/`.
 ![Upload](screenshots/upload_output.png)
 
 ###  Summarize
-![Summary Screenshot](screenshots/summarize_input.png)
-![Summary Screenshot](screenshots/summarize_output.png)
+![Summary Screenshot](screenshots/summarization_input.png)
+![Summary Screenshot](screenshots/summarization_output.png)
 
 ###  Audio
 ![Audio Screenshot](screenshots/audio_input.png)
