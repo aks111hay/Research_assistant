@@ -112,6 +112,8 @@ Visit: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 ---
 wait for sometimes it may show error but for sometimes but start automatically due to high weight models being used .
 
+![Api Application](screenshots/Application.png)
+
 ## 🧠 Multi-Agent Overview
 
 | Agent              | Role                                     |
