@@ -36,6 +36,8 @@ uvicorn main:app --reload
 
 Visit: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for Swagger UI
 
+sample file Real-Time_Detection_of_AI-Generated_Deepfake_Audio_A_Novel_Approach.pdf is given to upload 
+
 ---
 
 ## 📁 Folder Structure
